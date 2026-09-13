@@ -945,18 +945,4 @@ The project is continuing toward a lightweight AI-assisted SOC platform with rea
 
 If you find this project useful for learning about cybersecurity, SOC operations, detection engineering, or AI-assisted security analysis, consider starring the repository and following its development.
 
-EOF
 
-echo ""
-echo "=============================================="
-echo " README CREATED SUCCESSFULLY"
-echo "=============================================="
-echo ""
-echo "Lines:"
-wc -l README.md
-echo ""
-echo "First 10 lines:"
-head -10 README.md
-echo ""
-echo "Git status:"
-git status --short
