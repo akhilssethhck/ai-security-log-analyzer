@@ -787,6 +787,18 @@ Instead, AI is used as an additional analysis layer that helps summarize evidenc
 
 ---
 
+# Screenshots
+
+## Web Interface
+![Web Interface](screenshots/webinterface.png)
+
+## Security Analysis
+![Security Analysis](screenshots/working.png)
+
+## AI SOC Analysis
+![AI SOC Analysis](screenshots/working2.png)
+
+
 # Skills Demonstrated
 
 ## Cybersecurity
