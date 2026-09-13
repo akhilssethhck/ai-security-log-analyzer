@@ -1,0 +1,3 @@
+timestamp,source,event_type,severity,source_ip,username,destination_port,message
+2026-09-13T15:00:00,sshd,authentication_failure,HIGH,192.168.1.100,admin,,Failed password for admin
+2026-09-13T15:01:00,web,http_request,MEDIUM,192.168.1.100,,80,GET /../../etc/passwd

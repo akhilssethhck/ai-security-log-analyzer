@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": "2026-09-13T15:00:00",
+    "source": "sshd",
+    "event_type": "authentication_failure",
+    "severity": "HIGH",
+    "source_ip": "192.168.1.100",
+    "username": "admin",
+    "message": "Failed password for admin"
+  },
+  {
+    "timestamp": "2026-09-13T15:01:00",
+    "source": "web",
+    "event_type": "http_request",
+    "severity": "MEDIUM",
+    "source_ip": "192.168.1.100",
+    "destination_port": 80,
+    "message": "GET /../../etc/passwd"
+  }
+]

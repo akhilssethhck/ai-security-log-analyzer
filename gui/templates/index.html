@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AI Security Log Analyzer
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                AI
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    SECURITY ANALYZER
+                </strong>
+
+                <span>
+                    AI POWERED SOC PLATFORM
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="navigation">
+
+
+            <button
+                class="nav-item active"
+                data-target="overview"
+                type="button"
+            >
+
+                <span>
+                    01
+                </span>
+
+                OVERVIEW
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="analysis"
+                type="button"
+            >
+
+                <span>
+                    02
+                </span>
+
+                LOG ANALYSIS
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="detections"
+                type="button"
+            >
+
+                <span>
+                    03
+                </span>
+
+                DETECTIONS
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="incidents"
+                type="button"
+            >
+
+                <span>
+                    04
+                </span>
+
+                INCIDENTS
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="threat-intelligence"
+                type="button"
+            >
+
+                <span>
+                    05
+                </span>
+
+                THREAT INTELLIGENCE
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="ai-analysis"
+                type="button"
+            >
+
+                <span>
+                    06
+                </span>
+
+                AI SOC ANALYST
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="realtime"
+                type="button"
+            >
+
+                <span>
+                    07
+                </span>
+
+                REALTIME MONITOR
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="reports"
+                type="button"
+            >
+
+                <span>
+                    08
+                </span>
+
+                REPORT
+
+            </button>
+
+
+        </nav>
+
+
+        <!-- SIDEBAR STATUS -->
+
+        <div class="sidebar-footer">
+
+            <div class="online-indicator">
+
+                <div class="online-dot"></div>
+
+                <div>
+
+                    <strong>
+                        AI ENGINE
+                    </strong>
+
+                    <small id="sidebar-ai-status">
+                        CHECKING...
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             HEADER
+             ================================================= -->
+
+        <header class="top-header">
+
+            <div>
+
+                <div class="top-label">
+                    SECURITY OPERATIONS CENTER
+                </div>
+
+                <h1>
+                    AI SECURITY LOG ANALYZER
+                </h1>
+
+                <p>
+                    Automated detection, correlation,
+                    threat intelligence and AI-assisted
+                    security analysis.
+                </p>
+
+            </div>
+
+
+            <div class="system-clock">
+
+                <span id="current-date">
+                    --
+                </span>
+
+                <strong id="current-time">
+                    --:--:--
+                </strong>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             OVERVIEW
+             ================================================= -->
+
+        <section
+            class="dashboard-section"
+            id="overview"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        SYSTEM OVERVIEW
+                    </div>
+
+                    <h2>
+                        Security Operations Dashboard
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="status-badge online"
+                    id="system-badge"
+                >
+                    CHECKING SYSTEM
+                </span>
+
+            </div>
+
+
+            <div class="metrics-grid">
+
+
+                <div class="metric-card">
+
+                    <div class="metric-label">
+                        EVENTS
+                    </div>
+
+                    <strong id="metric-events">
+                        0
+                    </strong>
+
+                    <small>
+                        Parsed security events
+                    </small>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-label">
+                        DETECTIONS
+                    </div>
+
+                    <strong id="metric-detections">
+                        0
+                    </strong>
+
+                    <small>
+                        Triggered detection rules
+                    </small>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-label">
+                        INCIDENTS
+                    </div>
+
+                    <strong id="metric-incidents">
+                        0
+                    </strong>
+
+                    <small>
+                        Correlated incidents
+                    </small>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-label">
+                        AI ANALYSIS
+                    </div>
+
+                    <strong id="metric-ai">
+                        0
+                    </strong>
+
+                    <small>
+                        AI SOC assessments
+                    </small>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LOG ANALYSIS
+             ================================================= -->
+
+        <section
+            class="dashboard-section"
+            id="analysis"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        ANALYSIS ENGINE
+                    </div>
+
+                    <h2>
+                        Log Analysis
+                    </h2>
+
+                </div>
+
+                <span class="section-tag">
+                    PARSER → DETECTION → CORRELATION
+                </span>
+
+            </div>
+
+
+            <div class="analysis-grid">
+
+
+                <!-- UPLOAD PANEL -->
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <span>
+                            LOG INPUT
+                        </span>
+
+                        <span class="panel-code">
+                            .LOG / .TXT / .JSON / .CSV
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="drop-zone"
+                        id="drop-zone"
+                    >
+
+                        <div class="upload-symbol">
+                            +
+                        </div>
+
+                        <strong>
+                            DROP SECURITY LOG HERE
+                        </strong>
+
+                        <span>
+                            or click to browse files
+                        </span>
+
+                        <small>
+                            MAXIMUM FILE SIZE: 50 MB
+                        </small>
+
+
+                        <input
+                            type="file"
+                            id="file-input"
+                            accept=".log,.txt,.json,.csv"
+                        >
+
+                    </div>
+
+
+                    <!-- SELECTED FILE -->
+
+                    <div
+                        class="selected-file"
+                        id="selected-file"
+                        style="display:none;"
+                    >
+
+                        <div class="file-symbol">
+                            LOG
+                        </div>
+
+
+                        <div class="file-details">
+
+                            <strong
+                                id="selected-file-name"
+                            >
+                                --
+                            </strong>
+
+                            <span
+                                id="selected-file-info"
+                            >
+                                --
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="remove-button"
+                            id="remove-file"
+                        >
+                            REMOVE
+                        </button>
+
+                    </div>
+
+
+                    <!-- ERROR -->
+
+                    <div
+                        class="error-message"
+                        id="upload-error"
+                        style="display:none;"
+                    >
+                    </div>
+
+
+                    <!-- CONTROLS -->
+
+                    <div class="analysis-controls">
+
+
+                        <label class="model-control">
+
+                            <span>
+                                AI MODEL
+                            </span>
+
+                            <select id="ai-model">
+
+                                <option value="qwen3:1.7b">
+                                    qwen3:1.7b
+                                </option>
+
+                                <option value="llama3.2:latest">
+                                    llama3.2:latest
+                                </option>
+
+                            </select>
+
+                        </label>
+
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            id="analyze-button"
+                            disabled
+                        >
+                            RUN ANALYSIS
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- PROGRESS -->
+
+                    <div class="progress-container">
+
+                        <div class="progress-info">
+
+                            <span id="progress-message">
+                                Ready for analysis.
+                            </span>
+
+                            <strong id="progress-percent">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-bar"
+                                id="progress-bar"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PIPELINE PANEL -->
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <span>
+                            ANALYSIS PIPELINE
+                        </span>
+
+                        <span class="panel-code">
+                            SOC ENGINE
+                        </span>
+
+                    </div>
+
+
+                    <div class="pipeline">
+
+
+                        <div class="pipeline-step">
+
+                            <b>
+                                01
+                            </b>
+
+                            <div>
+
+                                <strong>
+                                    LOG PARSING
+                                </strong>
+
+                                <span>
+                                    Normalize raw security logs
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pipeline-line"></div>
+
+
+                        <div class="pipeline-step">
+
+                            <b>
+                                02
+                            </b>
+
+                            <div>
+
+                                <strong>
+                                    DETECTION ENGINE
+                                </strong>
+
+                                <span>
+                                    Identify suspicious behavior
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pipeline-line"></div>
+
+
+                        <div class="pipeline-step">
+
+                            <b>
+                                03
+                            </b>
+
+                            <div>
+
+                                <strong>
+                                    CORRELATION
+                                </strong>
+
+                                <span>
+                                    Combine related detections
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pipeline-line"></div>
+
+
+                        <div class="pipeline-step">
+
+                            <b>
+                                04
+                            </b>
+
+                            <div>
+
+                                <strong>
+                                    INCIDENT ENGINE
+                                </strong>
+
+                                <span>
+                                    Calculate risk and severity
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pipeline-line"></div>
+
+
+                        <div class="pipeline-step">
+
+                            <b>
+                                05
+                            </b>
+
+                            <div>
+
+                                <strong>
+                                    AI SOC ANALYST
+                                </strong>
+
+                                <span>
+                                    Investigate high-risk incidents
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DETECTIONS
+             ================================================= -->
+
+        <section
+            class="dashboard-section"
+            id="detections"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        DETECTION ENGINE
+                    </div>
+
+                    <h2>
+                        Security Detections
+                    </h2>
+
+                </div>
+
+                <span class="section-tag">
+                    RULE-BASED ANALYSIS
+                </span>
+
+            </div>
+
+
+            <div
+                class="result-container"
+                id="detections-container"
+            >
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        —
+                    </div>
+
+                    <strong>
+                        NO DETECTIONS
+                    </strong>
+
+                    <span>
+                        Run an analysis to populate security detections.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             INCIDENTS
+             ================================================= -->
+
+        <section
+            class="dashboard-section"
+            id="incidents"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        INCIDENT ENGINE
+                    </div>
+
+                    <h2>
+                        Security Incidents
+                    </h2>
+
+                </div>
+
+                <span class="section-tag">
+                    CORRELATED THREATS
+                </span>
+
+            </div>
+
+
+            <div
+                class="result-container"
+                id="incidents-container"
+            >
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        —
+                    </div>
+
+                    <strong>
+                        NO INCIDENTS
+                    </strong>
+
+                    <span>
+                        Security incidents will appear here after correlation.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             THREAT INTELLIGENCE
+             ================================================= -->
+
+        <section
+            class="dashboard-section"
+            id="threat-intelligence"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        THREAT INTELLIGENCE
+                    </div>
+
+                    <h2>
+                        External Intelligence
+                    </h2>
+
+                </div>
+
+                <span class="section-tag">
+                    IP REPUTATION
+                </span>
+
+            </div>
+
+
+            <div
+                class="result-container"
+                id="threat-intelligence-container"
+            >
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        —
+                    </div>
+
+                    <strong>
+                        NO THREAT INTELLIGENCE
+                    </strong>
+
+                    <span>
+                        Threat intelligence results will appear here when available.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             AI SOC ANALYST
+             ================================================= -->
+
+        <section
+            class="dashboard-section"
+            id="ai-analysis"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        ARTIFICIAL INTELLIGENCE
+                    </div>
+
+                    <h2>
+                        AI SOC Analyst
+                    </h2>
+
+                </div>
+
+                <span
+                    class="section-tag"
+                    id="ai-section-status"
+                >
+                    WAITING FOR ANALYSIS
+                </span>
+
+            </div>
+
+
+            <div class="ai-control-bar">
+
+                <div>
+
+                    <strong>
+                        AI-ASSISTED INCIDENT INVESTIGATION
+                    </strong>
+
+                    <span>
+                        Analyze correlated incidents using the selected local Ollama model.
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="ai-run-button"
+                >
+                    RUN AI SOC ANALYSIS
+                </button>
+
+            </div>
+
+
+            <div
+                class="result-container"
+                id="ai-analysis-container"
+            >
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        AI
+                    </div>
+
+                    <strong>
+                        AI ANALYSIS NOT RUN
+                    </strong>
+
+                    <span>
+                        Run analysis or use the AI SOC Analysis button.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REALTIME MONITOR
+             ================================================= -->
+
+        <section
+            class="dashboard-section"
+            id="realtime"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        LIVE SECURITY MONITOR
+                    </div>
+
+                    <h2>
+                        Realtime Monitoring
+                    </h2>
+
+                </div>
+
+                <span
+                    class="section-tag"
+                    id="realtime-status"
+                >
+                    MONITOR OFFLINE
+                </span>
+
+            </div>
+
+
+            <!-- REALTIME METRICS -->
+
+            <div class="metrics-grid realtime-metrics">
+
+
+                <div class="metric-card compact">
+
+                    <div class="metric-label">
+                        EVENTS
+                    </div>
+
+                    <strong id="realtime-events">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="metric-card compact">
+
+                    <div class="metric-label">
+                        DETECTIONS
+                    </div>
+
+                    <strong id="realtime-detections">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="metric-card compact">
+
+                    <div class="metric-label">
+                        INCIDENTS
+                    </div>
+
+                    <strong id="realtime-incidents">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="metric-card compact">
+
+                    <div class="metric-label">
+                        AI
+                    </div>
+
+                    <strong id="realtime-ai">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="metric-card compact">
+
+                    <div class="metric-label">
+                        STATUS
+                    </div>
+
+                    <strong>
+                        LIVE
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="panel">
+
+
+                <div class="panel-heading">
+
+                    <span>
+                        REALTIME LOG SOURCE
+                    </span>
+
+                    <span class="panel-code">
+                        LIVE MONITOR
+                    </span>
+
+                </div>
+
+
+                <div class="realtime-controls">
+
+
+                    <label>
+
+                        <span>
+                            LOG FILE PATH
+                        </span>
+
+                        <input
+                            type="text"
+                            id="realtime-log-path"
+                            placeholder="/var/log/auth.log"
+                        >
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="primary-button"
+                        id="realtime-start"
+                    >
+                        START MONITOR
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="realtime-stop"
+                        disabled
+                    >
+                        STOP MONITOR
+                    </button>
+
+
+                </div>
+
+
+                <div
+                    class="live-events"
+                    id="realtime-events"
+                >
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            LIVE
+                        </div>
+
+                        <strong>
+                            NO LIVE EVENTS
+                        </strong>
+
+                        <span>
+                            Waiting for events from the realtime log monitor.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REPORT
+             ================================================= -->
+
+        <section
+            class="dashboard-section"
+            id="reports"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        SECURITY REPORT
+                    </div>
+
+                    <h2>
+                        Analysis Report
+                    </h2>
+
+                </div>
+
+                <span class="section-tag">
+                    GENERATED REPORT
+                </span>
+
+            </div>
+
+
+            <div id="report-content">
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        —
+                    </div>
+
+                    <strong>
+                        REPORT NOT AVAILABLE
+                    </strong>
+
+                    <span>
+                        Run a log analysis to generate the security report.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-left">
+        © 2026 Akhil S S. All rights reserved.
+    </div>
+
+    <div class="footer-right">
+
+        <a
+            href="https://github.com/akhilssethhck"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-button"
+        >
+            <span class="github-icon">GH</span>
+            VIEW ON GITHUB
+        </a>
+
+    </div>
+
+</footer>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script
+    src="{{ url_for('static', filename='js/app.js') }}"
+></script>
+
+
+</body>
+
+</html>
