@@ -930,6 +930,14 @@ AI-generated security assessments should be reviewed by a qualified human analys
 
 Cybersecurity Student
 
+## Project Workflow
+
+The analyzer processes security logs, identifies suspicious activity,
+and presents the analysis through the project's interface.
+
+The project is designed to support security monitoring and
+investigation workflows.
+
 Areas of Focus:
 
 - Cybersecurity
