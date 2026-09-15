@@ -45,6 +45,11 @@ The goal is to combine deterministic security detections with threat intelligenc
 
 # Key Features
 
+- Security log analysis
+- AI-assisted threat analysis
+- Suspicious activity detection
+- Security-focused dashboard
+
 ## Multi-Source Log Analysis
 
 The platform currently supports:
